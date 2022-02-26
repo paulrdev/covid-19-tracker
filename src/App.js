@@ -17,6 +17,17 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [countries, setCountries] = useState([]);
   const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
+
+
+  // fix for issue when page first loads and none of the cards are populated with the stats for worldwide
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryInfo(data);
+      });
+  }, []);
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -27,6 +38,7 @@ function App() {
             name: country.country,
             value: country.countryInfo.iso2,
           }));
+          setTableData(data);
           setCountries(countries);
 
         });
