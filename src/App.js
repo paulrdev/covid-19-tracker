@@ -12,6 +12,7 @@ import {
 import InfoBox from "./infoBox";
 import Map from "./Map";
 import Table from "./Table";
+import LineGraph from "./LineGraph";
 import {sortData} from "./util.js"
 
 function App() {
@@ -97,6 +98,7 @@ console.log("TEST!!!!",  countryInfo);
 <h3>Live Cases by Country</h3>
 <Table countries={tableData}/>
 <h3>Worldwide new cases</h3>
+<LineGraph />
 </CardContent>
 </Card>
 </div>
