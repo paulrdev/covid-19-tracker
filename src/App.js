@@ -15,12 +15,14 @@ import Table from "./Table";
 import LineGraph from "./LineGraph";
 import {sortData} from "./util.js"
 
+
 function App() {
 
   const [country, setCountry] = useState("worldwide");
   const [countries, setCountries] = useState([]);
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
 
   // fix for issue when page first loads and none of the cards are populated with the stats for worldwide
@@ -65,7 +67,6 @@ setCountry(countryCode);
 
 
 };
-console.log("TEST!!!!",  countryInfo);  
   return (
     <div className="app">
     <div className="app__left">
@@ -95,10 +96,12 @@ console.log("TEST!!!!",  countryInfo);
 </div>
 <Card className="app__right">
 <CardContent>
+<div className="app__information">
 <h3>Live Cases by Country</h3>
 <Table countries={tableData}/>
-<h3>Worldwide new cases</h3>
-<LineGraph />
+<h3>Worldwide new {casesType}</h3>
+<LineGraph casesType={casesType}/>
+</div>
 </CardContent>
 </Card>
 </div>
