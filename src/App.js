@@ -7,6 +7,7 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
+import Chart from 'chart.js/auto';
 
 
 import InfoBox from "./infoBox";
@@ -55,7 +56,7 @@ function App() {
 
   const onCountryChange = async (e) => {
   const countryCode = e.target.value;
-  setCountry(countryCode);
+  //setCountry(countryCode);
 
   const url = countryCode === 'worldwide' ? "https://disease.sh/v3/covid-19/all" : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
@@ -67,16 +68,22 @@ setCountry(countryCode);
 
 
 };
+
   return (
     <div className="app">
     <div className="app__left">
       <h1>covid 19 tracker</h1>
+
+
+
       <FormControl className="app__dropdown">
             <Select
               variant="outlined"
+              value={country}
               onChange={onCountryChange}
+              key={country}
             >
-                        <MenuItem value="worldwide">Worldwide</MenuItem>
+              <MenuItem value="worldwide">Worldwide</MenuItem>
               {countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}

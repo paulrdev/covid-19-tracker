@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import Chart from 'chart.js/auto';
+
 import { Line } from 'react-chartjs-2';
 import numeral from 'numeral';
 
@@ -84,7 +86,7 @@ function LineGraph({casesType = 'cases'}) {
             .then((data) => {
               let chartData = buildChartData(data, casesType);
               setData(chartData);
-              console.log(chartData);
+              
               // buildChart(chartData);
             });
         };
@@ -92,14 +94,17 @@ function LineGraph({casesType = 'cases'}) {
 },[casesType]);
 
 
-console.log("data length ", data);
+
 
 
 
   return (
     <div> 
     <h1>im a graph</h1> 
-    {data?.length > 0 && (
+    {
+      
+      
+      data?.length > 0 && (
         <Line 
         options={options} 
         data={{
@@ -114,7 +119,9 @@ console.log("data length ", data);
         }}
          
         />
-        )}
+        )
+        
+        }
         </div>
   );
 }

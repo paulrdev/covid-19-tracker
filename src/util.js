@@ -2,7 +2,7 @@ export const sortData = (data) => {
 
     const sortedData = [...data];
 
-console.log("UTILS" , sortedData);
+
 
     sortedData.sort((a,b) => {
 
