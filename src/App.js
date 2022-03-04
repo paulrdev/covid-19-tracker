@@ -7,7 +7,6 @@ import {
   Card,
   CardContent,
 } from "@material-ui/core";
-import Chart from 'chart.js/auto';
 
 
 import InfoBox from "./infoBox";
