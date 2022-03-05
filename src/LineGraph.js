@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import Chart from 'chart.js/auto';
 
 import { Line } from 'react-chartjs-2';
 import numeral from 'numeral';
 
 // the options you need for chartjs
 // these have been copied straight from chart js
+
+
 
 const options = {
     legend: {
