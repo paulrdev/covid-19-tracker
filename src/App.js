@@ -14,6 +14,7 @@ import Map from "./Map";
 import Table from "./Table";
 import LineGraph from "./LineGraph";
 import {sortData} from "./util.js"
+import "leaflet/dist/leaflet.css";
 
 
 function App() {

@@ -32,10 +32,12 @@ const options = {
         {
           type: "time",
           time: {
-            format: "MM/DD/YY",
-            tooltipFormat: "ll",
+              unit: 'day',
+          displayFormats: {
+              day: 'DD/MM/YY',
           },
-        },
+          }
+        } 
       ],
       yAxes: [
         {
