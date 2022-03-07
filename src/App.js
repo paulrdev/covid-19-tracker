@@ -24,8 +24,11 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+const[mapCenter, setMapCenter] = useState({lat: 34.80746, lng: -40.4796});
+const [mapZoom, setMapZoom] = useState(3);
 
 
+console.log("map centre",mapCenter);
   // fix for issue when page first loads and none of the cards are populated with the stats for worldwide
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -63,10 +66,9 @@ function App() {
 await fetch(url).then(response => response.json()).then(data => {
 setCountry(countryCode);
   setCountryInfo(data);
-
-})
-
-
+  setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+setMapZoom(4);
+});
 };
 
   return (
@@ -99,7 +101,7 @@ setCountry(countryCode);
 
 </div>
 
-<Map />
+<Map center={mapCenter} zoom={mapZoom}/>
 </div>
 <Card className="app__right">
 <CardContent>
