@@ -26,6 +26,7 @@ function App() {
   const [casesType, setCasesType] = useState("cases");
 const[mapCenter, setMapCenter] = useState({lat: 34.80746, lng: -40.4796});
 const [mapZoom, setMapZoom] = useState(3);
+const [mapCountries, setMapCountries] = useState([]);
 
 
 console.log("map centre",mapCenter);
@@ -48,8 +49,9 @@ console.log("map centre",mapCenter);
             value: country.countryInfo.iso2,
           }));
 
-          const sortedData = sortData(data);
+          let sortedData = sortData(data);
           setTableData(sortedData);
+          setMapCountries(data);
           setCountries(countries);
         });
     };
@@ -66,7 +68,9 @@ console.log("map centre",mapCenter);
 await fetch(url).then(response => response.json()).then(data => {
 setCountry(countryCode);
   setCountryInfo(data);
-  setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+  console.log("hello lat",data.countryInfo.lat);
+  console.log("hello long",data.countryInfo.long);
+  setMapCenter({lat:data.countryInfo.lat, lng:data.countryInfo.long});
 setMapZoom(4);
 });
 };
@@ -101,7 +105,7 @@ setMapZoom(4);
 
 </div>
 
-<Map center={mapCenter} zoom={mapZoom}/>
+<Map countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
 </div>
 <Card className="app__right">
 <CardContent>
