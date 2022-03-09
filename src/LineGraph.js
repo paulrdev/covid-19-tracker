@@ -35,6 +35,7 @@ const options = {
               unit: 'day',
           displayFormats: {
               day: 'DD/MM/YY',
+              tooltipFormat: "ll"
           },
           }
         } 
@@ -55,10 +56,9 @@ const options = {
     },
   };
 
-  const buildChartData = (data,casesType) => {
+  const buildChartData = (data, casesType) => {
     let chartData = [];
     let lastDataPoint;
-    console.log("BEFORE",data);
     for (let date in data.cases) {
 
         if (lastDataPoint) {
@@ -103,28 +103,22 @@ function LineGraph({casesType = 'cases'}) {
 
   return (
     <div> 
-    <h1>im a graph</h1> 
-    {
-      
-      
-      data?.length > 0 && (
+    {data?.length > 0 && (
         <Line 
-        options={options} 
         data={{
         datasets: [
             {
             backgroundColor: "rgba(204, 16, 52, 0.5)",
             borderColor: "#CC1034",
-            data: data
+            data: data,
         },
         ],
         
         }}
+        options={options} 
          
         />
-        )
-        
-        }
+        )}
         </div>
   );
 }
