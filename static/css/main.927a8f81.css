@@ -1,2 +1,0 @@
-*{margin:0}body{background-color:#f5f6fa}.app{display:flex;justify-content:space-evenly;padding:20px}.app__left{flex:0.9 1}.app__header{align-items:center;margin-bottom:20px}.app__header,.app__stats{display:flex;justify-content:space-between}@media (max-width:990px){.app{flex-direction:column}}.table{background-color:#fff;color:#6a5d5d;height:400px;margin-top:20px;overflow:scroll}.table tr{display:flex;justify-content:space-between}.table td{padding:.5rem}.table tr:nth-of-type(odd){background-color:#f3f2f8}
-/*# sourceMappingURL=main.927a8f81.css.map*/
