@@ -99,9 +99,20 @@ setMapZoom(4);
 
 
 <div className="app__stats">
-<InfoBox title="Coronavirus Cases" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
-<InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
-<InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
+<InfoBox title="Coronavirus Cases"
+isRed 
+active={casesType === "cases"}
+onClick={(e) => setCasesType("cases")}
+cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
+<InfoBox title="Recovered" 
+active={casesType === "recovered"}
+onClick={(e) => setCasesType("recovered")}
+cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
+<InfoBox title="Deaths" 
+isRed 
+active={casesType === "deaths"}
+onClick={(e) => setCasesType("deaths")}
+cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
 </div>
 
 <Map countries={mapCountries} casesType={casesType} center={mapCenter} zoom={mapZoom}/>
@@ -111,8 +122,8 @@ setMapZoom(4);
 <div className="app__information">
 <h3>Live Cases by Country</h3>
 <Table countries={tableData}/>
-<h3>Worldwide new {casesType}</h3>
-<LineGraph casesType={casesType}/>
+<h3 className="app__graphTitle">Worldwide new {casesType}</h3>
+<LineGraph className="app__graph" casesType={casesType}/>
 </div>
 </CardContent>
 </Card>
