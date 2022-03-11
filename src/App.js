@@ -70,8 +70,14 @@ console.log("map centre",mapCenter);
 await fetch(url).then(response => response.json()).then(data => {
 setInputCountry(countryCode);
   setCountryInfo(data);
-  setMapCenter({lat:data.countryInfo.lat, lng:data.countryInfo.long});
-setMapZoom(4);
+
+  countryCode === "worldwide"
+  ? setMapCenter([34.80746, -40.4796])
+  : setMapCenter({lat:data.countryInfo.lat, lng:data.countryInfo.long});
+  countryCode === "worldwide"
+  ? setMapZoom(3)
+  : setMapZoom(4);
+  
 });
 };
 
