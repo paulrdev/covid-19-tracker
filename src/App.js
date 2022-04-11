@@ -29,7 +29,7 @@ const [mapZoom, setMapZoom] = useState(3);
 const [mapCountries, setMapCountries] = useState([]);
 
 
-console.log("map centre",mapCenter);
+
   // fix for issue when page first loads and none of the cards are populated with the stats for worldwide
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
